@@ -1,19 +1,28 @@
 {% extends "bootstrap/base.html" %}
 {% block title %} Poeticam - Haikus based on your images {% endblock %}
 
+{% block styles %}
+{{ super() }}
+<link href='http://fonts.googleapis.com/css?family=Crafty+Girls' rel='stylesheet' type='text/css'>
+<style type="text/css">
+#haiku {
+  font-family: 'Crafty Girls', cursive;
+  font-size: 3em;
+  text-align: center;
+}
+</style>
+{% endblock %}
+
 {%block content %}
 <div class="container">
-<div class="row">
-  <div class="col-md-12">
-    <h1>Poeticam -- Haikus based on your images</h1>
-  </div>
-</div>
 <div class="row">
   <div class="col-md-6">
   <img src="{{ url }}" style="width: 100%;">
   </div>
-  <div class="col-md-6">
-   {{ r }}
+  <div class="col-md-6" id="haiku">
+   {{ haikuline1 }}<br>
+   {{ haikuline2 }}<br>
+   {{ haikuline3 }}
   </div>  
   </div>
 </div>
