@@ -37,7 +37,7 @@ def index():
     return render_template('index.html')
 
 def generatehaiku(url):
-    return "<img src='" + url + "'>"
+    return render_template('haiku.html', url=url)
 
 if __name__ == '__main__':
     app.run(

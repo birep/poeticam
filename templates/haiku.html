@@ -1,0 +1,22 @@
+{% extends "bootstrap/base.html" %}
+{% block title %} Poeticam - Haikus based on your images {% endblock %}
+
+{%block content %}
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+    <h1>Poeticam -- Haikus based on your images</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+  <img src="{{ url }}" style="width: 100%;">
+  </div>
+  <div class="col-md-6">
+    <h1>Haiku</h1>
+    <h1>Goes</h1>
+    <h1>Here</h1>
+  </div>  
+  </div>
+</div>
+{% endblock %}
