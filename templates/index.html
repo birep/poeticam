@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+{% extends "bootstrap/base.html" %}
+{% block title %} Poeticam - Haikus based on your images {% endblock %}
+
+{%block content %}
+<div class="container">
+<div class="row">
+  <div class="span12">
+    <h1>Poeticam -- Haikus based on your images</h1>
+  </div>
+  <div class="span12">
     <form method="post" enctype="multipart/form-data">
         <input type="file" name="file[]" multiple>
         <input type="submit">
     </form>
-</body>
-</html>
+  </div>
+</div>
+</div>
+{% endblock %}

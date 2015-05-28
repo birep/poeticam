@@ -3,8 +3,10 @@ from boto.s3.key import Key
 
 from flask import Flask, request, render_template
 
-app = Flask(__name__)
+from flask_bootstrap import Bootstrap
 
+app = Flask(__name__)
+Bootstrap(app)
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
@@ -34,8 +36,8 @@ def index():
 
     return render_template('index.html')
 
-generatehaiku(url):
-    return url
+def generatehaiku(url):
+    return "<img src='" + url + "'>"
 
 if __name__ == '__main__':
     app.run(
