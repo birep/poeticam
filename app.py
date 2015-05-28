@@ -1,3 +1,7 @@
+import requests
+import json
+import os
+import base64
 import boto
 from boto.s3.key import Key
 
@@ -37,7 +41,16 @@ def index():
     return render_template('index.html')
 
 def generatehaiku(url):
-    return render_template('haiku.html', url=url)
+    authheader = "Basic " + base64.b64encode(os.environ['IMAGGA_API_KEY'] + ":" + os.environ['IMAGGA_API_SECRET'])
+    headers = {'accept': "application/json", 'authorization':authheader}
+    imaggaurl = "http://api.imagga.com/v1/tagging?url={}".format(url)
+    r = requests.get(imaggaurl, headers=headers)
+    imgtags = r.json()['results'][0]['tags']
+    tags = []
+    for tag in imgtags:
+        tags.append(tag['tag'])
+    tagstring = ", ".join(tags)
+    return render_template('haiku.html', url=url, r=tagstring)
 
 if __name__ == '__main__':
     app.run(
