@@ -1,6 +1,8 @@
 This app takes an image upload and returns a haiku,
 using the Imagga api to generate annotations for the image.
 
+Requires: flask, flask-bootstrap, boto, requests, textstat
+
 This program contains publicly shared code from s3multifile
 By Steve Saporta, license currently unknown,
 and should not be used for any commercial purposes
